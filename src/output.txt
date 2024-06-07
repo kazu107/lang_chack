@@ -1,0 +1,2 @@
+Received file content:
+入力データ is even 入力データ is odd 入力データ is even 入力データ is odd 入力データ is even 入力データ is odd 入力データ is even 入力データ is odd 入力データ is even 入力データ is odd 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Run Code</title>
+</head>
+<body>
+<select id="language" class="input-select">
+    <option value="python">Python</option>
+    <option value="cpp">C++</option>
+    <option value="node">Node.js</option>
+    <option value="ruby">Ruby</option>
+    <option value="java">Java</option>
+    <option value="perl">Perl</option>
+    <option value="php">PHP</option>
+</select>
+<button id="run" class="submit-button">Run</button>
+<pre id="output" class="output-area"></pre>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    //接続
+    socket.on('connect', function() {
+        console.log('Connected to server');
+    });
+    //ボタンが押されたら
+    document.getElementById('run').addEventListener('click', function() {
+        const language = document.getElementById('language').value;
+        socket.emit('run', { language });
+    });
+    // サーバーからの結果を受け取る
+    socket.on('result', function(data) {
+        console.log('Result:', data);
+        document.getElementById('output').innerText = `Output: ${data.output}\nError: ${data.error}\nMax Memory Usage: ${data.maxMemoryUsage}\nExecution Time: ${data.executionTime}\nFile Size: ${data.fileSize}`;
+    });
+    // サーバーからのエラーを受け取る
+    socket.on('error', function(error) {
+        console.error('Error:', error);
+        document.getElementById('output').innerText = `Error: ${error}`;
+    });
+</script>
+</body>
+</html>
