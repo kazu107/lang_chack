@@ -1,16 +1,29 @@
 {
-  "name": "src",
+  "name": "projects",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/run.js"
+  "engines": {
+    "node": "v20.13.1",
+    "npm": "10.5.2"
   },
+  "description": "",
+  "main": "testrun.js",
+  "scripts": {
+    "start": "node testrun.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kazu107/lang_chack.git"
+  },
+  "private": true,
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.19.2",
-    "pidusage": "^3.0.2",
-    "socket.io": "^4.7.5",
-    "socket.io-client": "^4.7.5"
-  }
+    "socket.io": "^4.7.5"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ]
 }
