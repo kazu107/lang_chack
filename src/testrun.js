@@ -19,7 +19,7 @@ app.use('/socket.io', express.static(path.join(__dirname, 'node_modules/socket.i
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
-//
+
 io.on('connection', (socket) => {
     console.log('Connected');
     socket.on('run', (data) => {
